@@ -8,10 +8,11 @@
 
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate, RestServiceDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, RestServiceDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     var currentAnnotation : FBAnnotation?
+    var pins : [Pin]!
     private let clusteringManager = FBClusteringManager()
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class ViewController: UIViewController, MKMapViewDelegate, RestServiceDelegate {
     }
     
     func didRecivePins(pins: [Pin]) {
+        self.pins = pins
         var annotations = [FBAnnotation]()
         for pin in pins{
              annotations.append(pin.toMKAnnotation())

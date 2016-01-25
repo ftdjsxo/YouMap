@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DCF8B0C1C56D57300B615A6 /* SearchMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCF8B0B1C56D57300B615A6 /* SearchMapViewController.swift */; };
+		0DCF8B0F1C56DD5600B615A6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCF8B0E1C56DD5600B615A6 /* TableViewController.swift */; };
 		131FC0DF1C5663B300086F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC0DE1C5663B300086F0F /* AppDelegate.swift */; };
-		131FC0E11C5663B300086F0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC0E01C5663B300086F0F /* ViewController.swift */; };
+		131FC0E11C5663B300086F0F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC0E01C5663B300086F0F /* MapViewController.swift */; };
 		131FC0E41C5663B300086F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 131FC0E21C5663B300086F0F /* Main.storyboard */; };
 		131FC0E71C5663B300086F0F /* YouMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 131FC0E51C5663B300086F0F /* YouMap.xcdatamodeld */; };
 		131FC0E91C5663B300086F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 131FC0E81C5663B300086F0F /* Assets.xcassets */; };
@@ -48,9 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DCF8B0B1C56D57300B615A6 /* SearchMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMapViewController.swift; sourceTree = "<group>"; };
+		0DCF8B0E1C56DD5600B615A6 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		131FC0DB1C5663B300086F0F /* YouMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		131FC0DE1C5663B300086F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		131FC0E01C5663B300086F0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		131FC0E01C5663B300086F0F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		131FC0E31C5663B300086F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		131FC0E61C5663B300086F0F /* YouMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YouMap.xcdatamodel; sourceTree = "<group>"; };
 		131FC0E81C5663B300086F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DCF8B0D1C56D59500B615A6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				131FC0E01C5663B300086F0F /* MapViewController.swift */,
+				0DCF8B0B1C56D57300B615A6 /* SearchMapViewController.swift */,
+				0DCF8B0E1C56DD5600B615A6 /* TableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		131FC0D21C5663B300086F0F = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +143,7 @@
 				131FC1161C56686B00086F0F /* Service */,
 				131FC10F1C5663C200086F0F /* Model */,
 				131FC0DE1C5663B300086F0F /* AppDelegate.swift */,
-				131FC0E01C5663B300086F0F /* ViewController.swift */,
+				0DCF8B0D1C56D59500B615A6 /* ViewControllers */,
 				131FC0E21C5663B300086F0F /* Main.storyboard */,
 				131FC0E81C5663B300086F0F /* Assets.xcassets */,
 				131FC0EA1C5663B300086F0F /* LaunchScreen.storyboard */,
@@ -337,12 +351,14 @@
 				139743661C56885D0019B574 /* FBAnnotationClusterView.swift in Sources */,
 				1397436D1C568FF00019B574 /* Helper.swift in Sources */,
 				1397436A1C56885D0019B574 /* FBQuadTreeNode.swift in Sources */,
-				131FC0E11C5663B300086F0F /* ViewController.swift in Sources */,
+				0DCF8B0F1C56DD5600B615A6 /* TableViewController.swift in Sources */,
+				131FC0E11C5663B300086F0F /* MapViewController.swift in Sources */,
 				131FC1111C5663F900086F0F /* Geometry.swift in Sources */,
 				131FC1151C56661400086F0F /* Pin.swift in Sources */,
 				131FC0E71C5663B300086F0F /* YouMap.xcdatamodeld in Sources */,
 				131FC0DF1C5663B300086F0F /* AppDelegate.swift in Sources */,
 				139743691C56885D0019B574 /* FBQuadTree.swift in Sources */,
+				0DCF8B0C1C56D57300B615A6 /* SearchMapViewController.swift in Sources */,
 				139743641C56885D0019B574 /* FBAnnotation.swift in Sources */,
 				139743651C56885D0019B574 /* FBAnnotationCluster.swift in Sources */,
 				139743681C56885D0019B574 /* FBClusteringManager.swift in Sources */,

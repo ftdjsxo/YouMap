@@ -9,6 +9,8 @@
 import UIKit
 
 class Helper {
+    static let UNPARSED_ELEMENTS_KEY = "elementsParsed"
+    
     class func UIColorFromRGB(rgbValue: UInt) -> UIColor? {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -16,6 +18,17 @@ class Helper {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    class func searchTitles(pins: [Pin], text: String) -> [Pin]{
+        var results = [Pin]()
+        for pin in pins{
+            if pin.getTitle().lowercaseString.containsString(text.lowercaseString){
+                print(pin.getTitle())
+                results.append(pin)
+            }
+        }
+        return results
     }
 
 }

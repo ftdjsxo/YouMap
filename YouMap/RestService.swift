@@ -35,6 +35,14 @@ class RestService: NSObject, NSURLConnectionDataDelegate {
     }
     
     func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+        let jsItem = NSUserDefaults.standardUserDefaults().objectForKey(Helper.UNPARSED_ELEMENTS_KEY)
+        let jsPins = jsItem!["features"] as? NSMutableArray
+        let elements = parseFeatures(jsPins)
+        
+        if elements != nil{
+           restServiceDelegate?.didRecivePins(elements!)
+        }
+        
         print("Errore: ", error.localizedDescription)
     }
     
@@ -55,18 +63,14 @@ class RestService: NSObject, NSURLConnectionDataDelegate {
             if let _ = NSString(data: self.responseData!, encoding: NSUTF8StringEncoding){
                 let jsItem = try NSJSONSerialization.JSONObjectWithData(responseData!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 print("Richiesta mappa: " , jsItem["id"] as! String , "completata")
-                var elements = [Pin]()
                 let jsPins = jsItem["features"] as! NSMutableArray
-                for jP in jsPins{
-                    let property = jP["properties"] as! NSDictionary
-                    let geom = jP["geometry"] as! NSDictionary
-                    
-                    let pin = Pin(property: parseProperty(property), geometry: parseGeom(geom))
-                    elements.append(pin)
+                let elements = parseFeatures(jsPins)
+                if elements == nil{
+                    return
                 }
-                
-                restServiceDelegate?.didRecivePins(elements)
-                print("Aggiunti ", elements.count, "elementi")
+                self.restServiceDelegate?.didRecivePins(elements!)
+                NSUserDefaults.standardUserDefaults().setObject(jsItem, forKey: Helper.UNPARSED_ELEMENTS_KEY)
+                print("Aggiunti ", elements!.count, "elementi")
              }
         }catch{
         }
@@ -87,6 +91,23 @@ class RestService: NSObject, NSURLConnectionDataDelegate {
             coordinates.append(coordinata as! Double)
         }
         return Geometry(coordinates: coordinates)
+    }
+    
+    private func parseFeatures(jsPins : NSMutableArray?) ->[Pin]?{
+        var elements = [Pin]()
+        
+        if jsPins == nil{
+            return nil
+        }
+        
+        for jP in jsPins!{
+            let property = jP["properties"] as! NSDictionary
+            let geom = jP["geometry"] as! NSDictionary
+            
+            let pin = Pin(property: parseProperty(property), geometry: parseGeom(geom))
+            elements.append(pin)
+        }
+        return elements
     }
     
     
